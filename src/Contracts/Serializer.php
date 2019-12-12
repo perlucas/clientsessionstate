@@ -8,18 +8,18 @@ namespace ClientSessionState\Contracts;
 interface Serializer
 {
     /**
-     * serializes a piece of data returning the string representation
+     * serializes an array of data returning the string representation
      *
-     * @param mixed $data
+     * @param array $data
      * @return string
      */
-    public function serialize(mixed $data): string;
+    public function serialize(array $data): string;
 
     /**
-     * restores te piece of data from its string representation
+     * restores the array of data from its string representation
      *
      * @param string $serializedData
-     * @return mixed
+     * @return array
      */
-    public function deserialize(string $serializedData): mixed;
+    public function deserialize(string $serializedData): array;
 }
