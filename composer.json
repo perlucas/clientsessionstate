@@ -1,0 +1,19 @@
+{
+    "name": "perlucas/clientsessionstate",
+    "description": "Simple PHP Client Session State Implementation",
+    "type": "library",
+    "require": {
+        "defuse/php-encryption": "^2.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "ClientSessionState": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucas",
+            "email": "lukaspereyra8@gmail.com"
+        }
+    ]
+}
