@@ -3,6 +3,7 @@
 namespace ClientSessionState;
 use ClientSessionState\Contracts\Encrypter;
 use ClientSessionState\Contracts\Serializer;
+use ClientSessionState\Contracts\SessionDataFormatter;
 use ClientSessionState\Impl\RawStringFormatter;
 use ClientSessionState\Impl\FormInputNodeFormatter;
 use ClientSessionState\Impl\BasicPHPSerializer;
@@ -11,7 +12,7 @@ use ClientSessionState\Impl\DefaultEncrypter;
 /**
  * main facade for using the library
  */
-abstract class ClientSession
+class ClientSession
 {
     /**
      * session data storage
@@ -118,7 +119,7 @@ abstract class ClientSession
      * @param mixed $data
      * @return void
      */
-    public function set(string $sessionKey, mixed $data)
+    public function set(string $sessionKey, $data)
     {
         $this->storage[$sessionKey] = $data;
     }
@@ -130,7 +131,7 @@ abstract class ClientSession
      * @param string $sessionKey
      * @return mixed
      */
-    public function get(string $sessionKey): mixed
+    public function get(string $sessionKey)
     {
         if ($this->has($sessionKey)) return $this->storage[$sessionKey];
         return null;
@@ -142,7 +143,7 @@ abstract class ClientSession
      * @param string $sessionKey
      * @return boolean
      */
-    public function has(string $sessionKey): boolean
+    public function has(string $sessionKey)
     {
         return \array_key_exists($sessionKey, $this->storage);
     }
