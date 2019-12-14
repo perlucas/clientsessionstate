@@ -1,6 +1,9 @@
 # Client Session State
 
 Simple client session state PHP implementation for embedding the session data inside the HTML content of your web pages.
+## Installation
+Just run `composer require perlucas/clientsessionstate`
+
 ## Fundamentals & Basic Usage
 This is one of many kinds of implementing the [client session state pattern](https://dzone.com/articles/practical-php-patterns/practical-php-patterns-client "client session state pattern"). Basically it consists on storing the session state on the client side by sending the data as an URL parameter or hiding it on a form; then restoring it on the server side for using it. [Here](http://www.rodsonluo.com/client-session-vs-server-session "Here") you can see a comparison between client session state and server session state.
 Use this helper for storing non-sensitive data on your HTML markup, releasing that memory usage on your server. Typically, you start by requiring an instance of `ClientSession`, and setting up your encryption key by calling the *setEncodingKey* method. After that, you can start adding, retrieving and removing values from the session object. Take into account that it works in a key-pair format.
