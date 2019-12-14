@@ -6,6 +6,7 @@ use ClientSessionState\Contracts\Serializer;
 use ClientSessionState\Contracts\SessionDataFormatter;
 use ClientSessionState\Impl\RawStringFormatter;
 use ClientSessionState\Impl\FormInputNodeFormatter;
+use ClientSessionState\Impl\JavascriptFormatter;
 use ClientSessionState\Impl\BasicPHPSerializer;
 use ClientSessionState\Impl\DefaultEncrypter;
 
@@ -110,6 +111,7 @@ class ClientSession
     {
         $this->setFormatter('string', new RawStringFormatter);
         $this->setFormatter('input', new FormInputNodeFormatter);
+        $this->setFormatter('js', new JavascriptFormatter);
     }
 
     /**

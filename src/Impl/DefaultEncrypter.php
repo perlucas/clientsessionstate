@@ -45,12 +45,14 @@ class DefaultEncrypter implements Encrypter
      */
     public function encrypt(string $key, string $data): string
     {
-        return \openssl_encrypt(
-            $data, 
-            $this->method,
-            $key, 
-            $this->options, 
-            $this->encryption_iv
+        return \base64_encode(
+            \openssl_encrypt(
+                $data, 
+                $this->method,
+                $key, 
+                $this->options, 
+                $this->encryption_iv
+            )
         );
     }
 
@@ -63,8 +65,9 @@ class DefaultEncrypter implements Encrypter
      */
     public function decrypt(string $key, string $encryptedData): string
     {
+        $encr = \base64_decode($encryptedData);
         return \openssl_decrypt(
-            $encryptedData, 
+            $encr, 
             $this->method,  
             $key, 
             $this->options, 
